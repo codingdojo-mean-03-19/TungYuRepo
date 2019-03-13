@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/style.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Game of Thrones</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="hidden" id="bara" value="17">
+                <img src="./static/img/baratheon.png" alt="baratheon" id="baratheon_id">
+                <div class="centered">Baratheon</div>
+            </div>
+            <div class="col-md-3">
+                <input type="hidden" id="lann" value="229">
+                <img src="./static/img/lannister.jpg" alt="lannister" id="lannister_id">
+                <div class="centered">Lannister</div>
+            </div>
+            <div class="col-md-3">
+                <input type="hidden" id="star" value="362">
+                <img src="./static/img/stark.jpg" alt="stark" id="stark_id">
+                <div class="centered">Stark</div>
+            </div>
+            <div class="col-md-3">
+                <input type="hidden" id="targ" value="378">
+                <img src="./static/img/targaryen.jpg" alt="targaryen" id="targaryen_id">
+                <div class="centered">Targaryen</div>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">House Details</legend>
+                    <div class="inner_content"></div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./static/js/function.js"></script>
+</body>
+</html>
