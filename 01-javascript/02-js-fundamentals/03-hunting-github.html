@@ -1,1 +1,24 @@
-// 1 hour
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hunting Github</title>
+</head>
+<body>
+    <button>GitHub</button>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.get("https://api.github.com/users/tina80925", displayName);
+
+            function displayName(data) {
+                $('button').click(function(){
+                    $(this).after(`<p>${data.name}</p>`)
+                })
+            };
+        });
+    </script>
+</body>
+</html>
