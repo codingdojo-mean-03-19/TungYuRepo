@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>Doj Jquery</title>
+</head>
+<body>
+    <button id="idForClickButton">Click</button>
+    <button id="idForHoverButton">Hover</button>
+    <script>
+        
+        (function(global) {
+            global.$Dojo = function $Dojo(id){
+
+                console.log(this);
+                this.element = document.getElementById(id);
+
+                this.click = function(clickcallback){
+                    this.element.addEventListener(click, clickcallback);
+                };
+
+                this.hover = function(hoverIncallback, hoverOutcallback){
+                    this.element.addEventListener("mouseover", hoverIncallback);
+                    this.element.addEventListener("mouseout", hoverOutcallback);
+                };
+
+            return this;
+            };
+
+
+        })(window);
+
+        $Dojo("idForClickButton").click(function() { console.log("The button was clicked!") });
+        $Dojo("idForHoverButton").hover(function() { console.log("The button was hovered on!") });
+
+    </script>
+</body>
+</html>
