@@ -1,3 +1,4 @@
+// ES5
 function fib() {
     // Some variables here
     let fib0 = 0;
@@ -19,4 +20,25 @@ function fib() {
   fibCounter() // should console.log "3"
   fibCounter() // should console.log "5"
   fibCounter() // should console.log "8"
+
+
+  //ES6
+  class fib {
+      constructor(){
+          this.fib0 = 0;
+          this.fib1 = 1;
+      }
+      nacci(){
+        const temp = this.fib0; 
+        console.log(this.fib1);
+
+        this.fib0 = this.fib1;
+        this.fib1 = this.fib1 + temp;
+      }
+  }
   
+  const fibCounter = new fib();
+  fibCounter.nacci();
+  fibCounter.nacci();
+  fibCounter.nacci();
+  fibCounter.nacci();
