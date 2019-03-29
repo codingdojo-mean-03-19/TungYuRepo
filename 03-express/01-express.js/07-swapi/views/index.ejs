@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <!-- <script src="../static/js/main.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Star Wars API</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-4 text-center wrapper">
+
+                <h1>Star Wars Wiki</h1>
+                <p>What would you like to know more about?</p>
+                <!-- <form action="/processPeople" method="POST">
+                </form> -->
+                <button class="btn" id="peopleBtn">People</button>
+    
+                <button class="btn" id="planetsBtn">Planets</button>
+                
+                <div class="border">
+                    <div class="inner_cont">
+
+                    
+                    </div>
+                    <div id="content">
+                        <img id="loading" src="images/loading.gif" alt="Loading" hidden>
+                    </div>
+                </div>
+                <ul>
+                    <li><a href="#" id="prev" hidden>Previuos 10</a></li>
+                    <li><a href="#" id="all" >Get all</a></li>
+                    <li><a href="#" id="next" >Next 10</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#peopleBtn').click(function(){
+                //let's make the request to our OWN server!
+                $.get('/people/0', function(data){
+                    $('.inner_cont').empty();
+                    // log the data to be sure we have it before we dive into manipulating the DOM
+                    console.log("got the data", data.results);
+                    for(let d of data.results) {
+                        $('.inner_cont').append(`
+                        <p>${d.name}</p>
+                        `);
+                        console.log("got the data from loop", d.name);
+                    }
+                }, 'json');
+            });
+
+            $('#planetsBtn').click(function(){
+                // let's make the request to our OWN server!
+                $.get('/planet/0', function(data){
+                    $('.inner_cont').empty();
+                    // log the data to be sure we have it before we dive into manipulating the DOM
+                    console.log("got the data", data.results);
+                    for(let d of data.results) {
+                        $('.inner_cont').append(`
+                            <p>${d.name}</p>
+                        `);
+                        console.log("got the data from loop", d.name);
+                    }
+                }, 'json');
+            });
+            $('#next').click(function() {
+                console.log('clicking next');
+                $.get('/next', (data) => { 
+                    display(data); 
+                }, 'json');
+            });
+
+            $('#all').click(function(){
+                console.log('clicking all');
+                $.get('/all', (data) => {
+                    display(data);
+                }, 'json');
+            });
+
+            $('#prev').click(function(){
+                console.log('clicking prev');
+                $.get('/prev', (data) => {
+                    display(data);
+                }, 'json');
+            });
+
+            //displaying  data after click on next || prev button
+            function display(info){
+            
+            $('#all').removeAttr('hidden');
+
+            if(info.next != null) {
+                $('#next').removeAttr('hidden');
+            } else {
+                $('#next').attr('hidden', 'hidden')
+            }
+
+            if(info.previous != null) {
+                $('#prev').removeAttr('hidden');
+            } else {
+                $('#prev').attr('hidden', 'hidden')
+            }
+
+            let build = '';
+            for(let i = 0; i < info.results.length; i++){
+                build += `<p> ${info.results[i].name} </p>`;
+            }
+
+                $('.inner_cont').html(build);
+            }
+            $('#all').click(function() {
+                add();
+            });
+            function add(){
+                $('#loading').removeAttr('hidden');
+                $.get('/next', (data) => {
+                    let build = '';
+                    for(let i = 0; i < data.results.length; i++){
+                        build += `<p> ${data.results[i].name} </p>`
+                    }
+                    console.log(data);
+                    $('#content').append(build);
+                    $('#loading').attr('hidden', 'hidden');
+                }, 'json');
+            }
+        });
+    </script>
+</body>
+</html>
