@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Survey Form Revisited</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+        	// triggers the connection event in our server!
+            var socket = io.connect();
+            // submit data to the server using emit
+            $('#survey_form').submit(function(e) {
+        		e.preventDefault();
+				socket.emit("posting_form", {
+				  	name: $('#name').val(),
+                    location: $('#location').val(),
+                    language: $('#language').val(),
+                    comment: $('#comment').val()
+                });
+			});
+        	//display the emit response of the server called "updated_message" and "random_number"
+			socket.on('updated_message', function (data){
+			    $('#message').html("You emitted the following information to the server: " + JSON.stringify(data.response));
+			});
+			socket.on('random_number', function (data){
+			   $('#number').html("Your lucky number emitted by the server is : " + JSON.stringify(data.response));
+			});
+        });
+    </script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div id="message"></div>
+				<div id="number"></div>
+				<form action="" id="survey_form">
+					<table>
+						<tr>
+							<td><label for="">Your Name: </label></td>
+							<td><input type="text" name="name" id="name"></td>
+						</tr>
+						<tr>
+							<td><label for="">Dojo Location: </label></td>
+							<td>
+								<select name="location" id="location">
+									<option value="Mountain View">Mountain View</option>
+									<option value="Silicon Valley">Silicon Valley</option>
+									<option value="Seattle WA">Seattle WA</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><label for="">Favorite Language: </label></td>
+							<td>
+								<select name="language" id="language">
+									<option value="C">C</option>
+									<option value="PHP">PHP</option>
+									<option value="Javascript">Javascript</option>
+									<option value="HTML and CSS">HTML and CSS</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><label for="">Comment (optional) : </label></td>
+						</tr>
+					</table>
+					<textarea name="comment" id="comment" cols="40" rows="5"></textarea>
+					<br>
+					<input type="submit" value="Submit" class="btn btn-primary">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
