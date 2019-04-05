@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Mongoose Dashboard</title>
+</head>
+<body class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">Home</a>
+                <a class="navbar-brand" href="/new/">New member</a>
+            </nav>
+            <div class="col-md-12">
+                <h1>Displays all Dogs</h1>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (const dog of dogs) { %>
+                            <tr>
+                                <td><%= dog.name %></td>
+                                <td><%= dog.age %></td>
+                                <td><%= dog.weight %></td>
+                                <td>
+                                    <ul>
+                                        <li><a href="/<%= dog._id %>/">Show</a></li>
+                                        <li><a href="/<%= dog._id %>/edit/">Edit</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
