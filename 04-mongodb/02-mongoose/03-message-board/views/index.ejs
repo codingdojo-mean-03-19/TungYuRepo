@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Mongoose Dashboard</title>
+</head>
+<body class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">The Dojo Message Board</a>
+            </nav>
+            <div class="col-md-12">
+                <form action="/message" method="POST">
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <input type="text" name="name" class="form-control col-md-3 mb-3">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Message</label>
+                        <textarea name="message" class="form-control" cols="30" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary text-right" style="position: absolute; right: 15px;">Post message</button>
+                </form>
+                <% if (typeof(errors) !== 'undefined' ) { %>
+                    <% for (const key in errors) { %>
+                     <h3><%= errors[key].message %></h3>
+                    <% } %>
+                 <% } else { %>
+                    <div>
+                        <% for(const message of messages) { %>
+                            <div class="inner_cont col-md-8">
+                                <h6>Name: <%= message.name %></h6>
+                                <h6>Message: <%= message.message %></h6>
+                                <!--Displaying a comments-->
+                                <div class="comment-left">
+                                    <% if(message._comments) {%>
+                                        <% for(const c of message._comments) { %>
+                                            <ul>
+                                                <li id="name"><%= c.name %></li>
+                                                <li id="comment"><%=c.text %></li>
+                                            </ul>
+                                        <% } %>
+                                    <% } %>
+                                </div>
+                                <form action="/comment/<%= message._id %>" method="POST" class="comment_form">
+                                    <div class="form-group">
+                                        <label for="">Name</label>
+                                        <input type="text" name="name" class="form-control col-md-3 mb-3">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Comment</label>
+                                        <textarea name="text" class="form-control" cols="30" rows="4"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary text-right" style="position: absolute; right: 15px;">Post comment</button>
+                                </form>
+                            </div>
+                        <% } %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

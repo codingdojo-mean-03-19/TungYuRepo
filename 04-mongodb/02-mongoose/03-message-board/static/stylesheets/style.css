@@ -1,0 +1,28 @@
+.inner_cont{
+    margin-top: 50px;
+}
+.comment_form{
+    margin-left: 42px;
+}
+.inner_cont{
+    margin-left: 50px;
+}
+textarea{
+    text-align: justify;
+}
+.comment-left {
+    margin-top: 20px;
+    font-size: 15px;
+}
+.comment-left ul li{
+    list-style-type: none;
+ }
+ #name{
+     font-size: 12px;
+ }
+ #comment{
+     border: 1px solid #a2a2a2;
+     border-radius: 3px;
+     padding: 5px 20px;
+     background-color: antiquewhite;
+ }
