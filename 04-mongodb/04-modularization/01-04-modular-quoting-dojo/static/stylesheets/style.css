@@ -1,0 +1,14 @@
+.wrapper{
+    border: 2px solid blue;
+    padding: 20px;
+    border-radius: 25px;
+}
+.inner{
+    margin-left: 130px;
+}
+p{
+    color: blue;
+}
+h5{
+    
+}
