@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Dojo Secrets</title>
+</head>
+<body class="container">
+    <div class="row">
+        <div class="col-md-12 text-right ">
+            <a href="/secret">Home</a>
+            <a href="/clear">Logout</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <% if (messages.errors) { %>
+                <% for ( error of messages.errors) { %>
+                    <div class="alert-danger"><%= error %></div>
+                <% } %>
+            <% } %>
+
+            <% if (messages.success) { %>
+                <div class="alert-success"><%= messages.success %></div>
+            <% } %>
+
+            <% if (messages.PasswordNoMatch ) { %>
+                <div class="alert-danger"><%= messages.PasswordNoMatch %></div>
+            <% } %>
+
+        </div>
+    </div>
+    <div class="row justify-content-md-center botton_cont ">
+        <div class="col-md-6">
+            <h1>Comment on this secret</h1>
+            <div class="card">
+                <% if(msg){ %>
+                <div class="card-header">
+                    <p class="card-text"><%= msg.text %></p>
+                </div>
+                <div class="card-body scroller">
+                    <% for(d of data) { %>
+                        <p class="card-text"><%= d.comment %></p> 
+                    <% } %>
+                </div>
+                <form action="/comment/<%= msg._id %>" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="comment">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
