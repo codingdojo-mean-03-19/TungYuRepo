@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Mongoose Dashboard</title>
+</head>
+<body class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">Home</a>
+                <!-- <a class="navbar-brand" href="/dog/new">New member</a> -->
+            </nav>
+            <div class="col-md-12">
+                <h2>Add a new member</h2>
+                <form action="/" method="POST">
+                    <table>
+                        <tr>
+                            <td><label for="">Name</label></td>
+                            <td><input type="text" name="name" id=""></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Age</label></td>
+                            <td><input type="number" name="age" id=""></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Weight</label></td>
+                            <td><input type="number" name="weight" id=""></td>
+                        </tr>
+                    </table>
+                    <button class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
