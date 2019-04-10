@@ -1,5 +1,6 @@
-const mongoose = require('mongoose');
-const Quote = mongoose.model('quotes');
+const quotes = require('../controllers/quotes.js')
+
+//Routes 
 
 module.exports = function(app){
     
@@ -8,34 +9,11 @@ module.exports = function(app){
     });
     
     app.post('/quotes', function(req, res){
-        // Quote.create(req.body, function(err){
-        //     if(err){console.log(err); }
-        //     res.redirect('/quotes');
-        // });
-    
-        Quote.create(req.body)
-        .then(quotes => {
-            console.log(quotes);
-            res.redirect('/quotes')
-        })
-        .catch(
-            console.log
-        );
+        quotes.post_quotes(req, res);
     });
     
     app.get('/quotes', function(req, res){
-        // Quote.find({}, function(err, quotes){
-        //     if(err){console.log(err); }
-        //     res.render('quotes', {quotes: quotes});
-        // });
-    
-        Quote.find({})
-        .then(quotes => 
-            res.render('quotes', {quotes:quotes})
-        )
-        .catch(
-            console.log
-        );
+        quotes.get_quotes(req,res);
     });
     
 }
