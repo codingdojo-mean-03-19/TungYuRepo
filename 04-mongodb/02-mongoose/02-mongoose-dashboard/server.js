@@ -7,7 +7,7 @@ const { PORT: port = 8000 } = process.env;
 const { Schema } = mongoose;
 const app = express();
 
-mongoose.connect('mongodb://localhost/quoting_dojo', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/mongoose_dashboard', { useNewUrlParser: true });
 mongoose.connection.on('connected', () => console.log('connected to mongodb'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
