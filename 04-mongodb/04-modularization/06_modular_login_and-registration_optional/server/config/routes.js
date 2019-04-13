@@ -3,7 +3,7 @@
 const users = require('../controllers/users.js');
 
 
-module.exports = function Route(app, mongoose){
+module.exports = function (app){
 
     //login & register page
     app.get('/', function(req, res){

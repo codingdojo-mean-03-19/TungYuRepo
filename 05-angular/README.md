@@ -4,5 +4,7 @@
 
 ## Example
 
-Assuming your current working directory is: `02-fetch-data`  
-Issue the following: `ng new restful-tasks`
+Assuming your current working directory is: `03-component-data`  
+Issue the following: `ng new dojo-mail`
+
+### _All Archive assignments are optional_

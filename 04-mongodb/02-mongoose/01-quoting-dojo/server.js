@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-const quoteSchema = new mongoose.Schema({
+const quoteSchema = new Schema({
     name: { type: String },
     quote: { type: String },
 }, { timestamps: true});
@@ -62,4 +62,4 @@ app.get('/quotes', function(req, res){
 
 
 
-app.listen(port, () => console.log(`express serverlistening on port ${port}`));
+app.listen(port, () => console.log(`express server listening on port ${port}`));
