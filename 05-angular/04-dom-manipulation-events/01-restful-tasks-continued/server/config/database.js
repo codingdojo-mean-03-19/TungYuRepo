@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const modelspath = path.join(__dirname, '../models');
 
-mongoose.connect('mongodb://localhost/books', {
+mongoose.connect('mongodb://localhost/restful-task-api', {
   useCreateIndex: true,
   useNewUrlParser: true,
 });
