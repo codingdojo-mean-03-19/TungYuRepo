@@ -1,0 +1,83 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js add express mongooose body-parser
+
+PATH: 
+  /Users/enkhbattulga/.npm-packages/bin:/usr/local/bin:/usr/local/sbin:/.composer/vendor/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin:/Users/enkhbattulga/.npm-packages/bin:/usr/local/sbin:/.composer/vendor/bin
+
+Yarn version: 
+  1.15.2
+
+Node version: 
+  11.12.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/mongooose: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:66058:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:129541:22)
+      at Request.emit (events.js:197:13)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:130513:10)
+      at Request.emit (events.js:197:13)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:130435:12)
+      at Object.onceWrapper (events.js:285:20)
+      at IncomingMessage.emit (events.js:202:15)
+      at endReadableNT (_stream_readable.js:1132:12)
+      at processTicksAndRejections (internal/process/next_tick.js:76:17)
+
+npm manifest: 
+  {
+    "name": "books",
+    "version": "0.0.0",
+    "scripts": {
+      "ng": "ng",
+      "start": "ng serve",
+      "build": "ng build",
+      "test": "ng test",
+      "lint": "ng lint",
+      "e2e": "ng e2e"
+    },
+    "private": true,
+    "dependencies": {
+      "@angular/animations": "~7.2.0",
+      "@angular/common": "~7.2.0",
+      "@angular/compiler": "~7.2.0",
+      "@angular/core": "~7.2.0",
+      "@angular/forms": "~7.2.0",
+      "@angular/platform-browser": "~7.2.0",
+      "@angular/platform-browser-dynamic": "~7.2.0",
+      "@angular/router": "~7.2.0",
+      "core-js": "^2.5.4",
+      "rxjs": "~6.3.3",
+      "tslib": "^1.9.0",
+      "zone.js": "~0.8.26"
+    },
+    "devDependencies": {
+      "@angular-devkit/build-angular": "~0.13.0",
+      "@angular/cli": "~7.3.8",
+      "@angular/compiler-cli": "~7.2.0",
+      "@angular/language-service": "~7.2.0",
+      "@types/node": "~8.9.4",
+      "@types/jasmine": "~2.8.8",
+      "@types/jasminewd2": "~2.0.3",
+      "codelyzer": "~4.5.0",
+      "jasmine-core": "~2.99.1",
+      "jasmine-spec-reporter": "~4.2.1",
+      "karma": "~4.0.0",
+      "karma-chrome-launcher": "~2.2.0",
+      "karma-coverage-istanbul-reporter": "~2.0.1",
+      "karma-jasmine": "~1.1.2",
+      "karma-jasmine-html-reporter": "^0.2.2",
+      "protractor": "~5.4.0",
+      "ts-node": "~7.0.0",
+      "tslint": "~5.11.0",
+      "typescript": "~3.2.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

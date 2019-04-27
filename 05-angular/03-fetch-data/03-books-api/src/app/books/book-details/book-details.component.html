@@ -1,0 +1,36 @@
+<section *ngIf="book">
+  <fieldset class="scheduler-border">
+    <legend class="scheduler-border">Selected Book</legend>
+    <table>
+      <tr>
+        <td>id:</td>
+        <td>{{ book.id }}</td>
+      </tr>
+
+      <tr>
+        <td>Title:</td>
+        <td>{{ book.title }}</td>
+      </tr>
+
+      <tr>
+        <td>Author:</td>
+        <td>{{ book.author }}</td>
+      </tr>
+
+      <tr>
+        <td>Year:</td>
+        <td>{{ book.year }}</td>
+      </tr>
+
+      <tr>
+        <td>Pages:</td>
+        <td>{{ book.pages }}</td>
+      </tr>
+
+      <tr>
+        <td>Publisher:</td>
+        <td>{{ book.publisher }}</td>
+      </tr>
+    </table>
+  </fieldset>
+</section>
