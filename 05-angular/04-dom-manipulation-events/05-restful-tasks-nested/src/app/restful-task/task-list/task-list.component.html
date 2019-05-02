@@ -1,0 +1,16 @@
+<section>
+  <div class='inner'>
+    <div class="cont">
+      <button (click)='onAll(tasks)' class="all">GET ALL TASKS</button>
+      <div *ngIf='showAll'>
+        <ul *ngFor='let t of tasks' >
+          <li>
+            {{ t.title }}
+            <button (click)='onSelect(t)' class='btn btn-success btn-sm'>show</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<app-task-details [task]='selectedTask'></app-task-details>

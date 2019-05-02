@@ -1,0 +1,18 @@
+.inner{
+  border: 7px solid #330AFF;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+.all{
+  background-color: #9C28B0;
+  color: #ffffff;
+  margin: 15px 0;
+
+}
+/* .cont{
+  border: 2px solid #000000;
+
+} */
+ul li{
+  list-style: none;
+}
