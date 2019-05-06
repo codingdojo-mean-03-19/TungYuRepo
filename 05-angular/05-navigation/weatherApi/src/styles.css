@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+.weather-info-list{
+  padding-top: 20px;
+}
+.weather-info-list li{
+  list-style-type: none;
+}

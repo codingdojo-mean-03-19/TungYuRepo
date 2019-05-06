@@ -1,0 +1,29 @@
+.cities li {
+  display: inline;
+  text-decoration: none;
+  padding-left: 20px;
+}
+.cities li a{
+  color: rgb(4, 121, 164);
+}
+.cities li a:visited,
+.cities li a:focus,
+.cities li a:link
+{
+  color: rgb(4, 121, 164);
+}
+.cities span{
+  text-decoration: none;
+  color: #000;
+  padding-left: 10px;
+}
+.wrapper{
+  margin-top: 50px;
+}
+.fieldset{
+  border: 1px solid black;
+  padding-left: 20px;
+}
+.weather-info-list li{
+  list-style-type: none;
+}
