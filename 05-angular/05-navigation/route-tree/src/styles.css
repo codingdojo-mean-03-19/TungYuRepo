@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+.green{
+  border: 2px solid green;
+  padding: 20px;
+  border-radius: 20px;
+}
+.purple{
+  border: 2px solid purple;
+  padding: 20px;
+  border-radius: 20px;
+}
