@@ -1,0 +1,18 @@
+<section>
+  <div class='row justify-content-md-center'>
+    <div class='col-med-6'>
+      <h2>Products List</h2>
+      <div class='box' *ngFor="let product of products" (click)='onEdit(product)'>
+        <ul >
+          <li><img src='{{ product.image }}' width='200' height='150'></li>
+          <li>{{ product.title }}</li>
+          <li>${{ product.price }}</li>
+        </ul>
+        <a class="btn btn-secondary btn-sm" routerLink ='/products/edit/{{ product._id }}'>Edit</a>
+        <a class="btn btn-danger btn-sm" (click)='onDelete($event, product)'>Delete</a>
+      </div>
+    </div>
+  </div>
+  </section>
+
+

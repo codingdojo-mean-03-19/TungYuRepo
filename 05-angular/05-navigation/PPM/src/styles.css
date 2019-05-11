@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+.border{
+  border: 3px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+ul li {
+  list-style: none;
+}
+.btn{
+  display: inline-block;
+  margin-right: 10px;
+  color: #ffffff;
+}

@@ -1,0 +1,14 @@
+.box{
+  border: 2px solid #000000;
+  margin-bottom: 20px;
+  padding: 20px;
+  display: inline-block;
+  margin-right: 10px;
+}
+ul{
+  padding: 0;
+}
+.btn{
+  display: inline-block;
+  margin-right: 10px;
+}

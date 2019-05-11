@@ -1,0 +1,17 @@
+<section>
+  <div class='container'>
+    <div class='row justify-content-md-center text-center'>
+      <div class='col-md-12'>
+        <h1>PPM - Project Product Management</h1>
+        <ul class='nav justify-content-md-center'>
+          <li><a [routerLink]="['']">Home</a></li>
+          <li><a [routerLink]="['/products']">Product List</a></li>
+          <li><a [routerLink]="['/products/new']">Product Creation</a></li>
+        </ul>
+        <div class='border'>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
