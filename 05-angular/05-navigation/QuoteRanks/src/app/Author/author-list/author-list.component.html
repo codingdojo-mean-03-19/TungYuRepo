@@ -1,0 +1,26 @@
+<section>
+  <div class='list-comp'>
+    <h1>Quote Ranks</h1>
+    <a [routerLink]="['/new']" >Add a quotable author</a>
+    <p>We have quotes by:</p>
+    <table class='table table-bordered table-striped'>
+      <thead>
+        <tr>
+          <th>Author</th>
+          <th>Actions Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let author of authors'>
+          <td>{{ author.name }}</td>
+          <td>
+            <ul>
+              <li><a class='btn btn-primary' routerLink='/quotes/{{ author._id }}' >View quotes</a></li>
+              <li class='btn btn-success' routerLink='/edit/{{author._id}}' routerLinkActive="router-link-active">Edit</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

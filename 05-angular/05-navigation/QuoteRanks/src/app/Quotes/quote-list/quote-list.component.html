@@ -1,0 +1,32 @@
+<section>
+  <div class='list-comp'>
+    <h1>Quote Ranks</h1>
+    <ul>
+      <li routerLink='/' >Home</li>
+      <li routerLink='/newQuote/{{ authors._id }}' >Add a quote</li>
+    </ul>
+    <p>Quotes by {{ authors.name }}:</p>
+    <table class='table table-bordered table-striped'>
+      <thead>
+        <tr>
+          <th>Quote</th>
+          <th>Votes</th>
+          <th>Actions Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let qoute of authors.quotes'>
+          <td>{{ qoute.content }}</td>
+          <td>{{ qoute.votes}}</td>
+          <td>
+            <ul>
+              <li (click)='onVote(qoute)' class='btn btn-success'>Vote  up</li>
+              <li (click)='onVoteDown(qoute)' class='btn btn-warning'>Vote down</li>
+              <li (click)='onDelete(qoute)' class='btn btn-danger'>Delete</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
